@@ -1,5 +1,4 @@
 import parse from "./parseData";
-require("dotenv").config();
 
 const getGame = (index, history, setGame, games) => {
   let game = games[index];

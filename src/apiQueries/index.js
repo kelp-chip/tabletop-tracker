@@ -2,7 +2,7 @@ import axios from "axios";
 import parse from "./parseData";
 require("dotenv").config();
 
-console.log("here it is: ", process.env.CLIENT_ID);
+console.log("here it is: ", process.env.REACT_APP_CLIENT_ID);
 
 const DOMAIN = "https://api.boardgameatlas.com/api/search?";
 const fields =
@@ -13,7 +13,7 @@ const API = {
     e.preventDefault();
     if (search !== "") {
       axios(
-        `${DOMAIN}name=${search}&exact=true&limit=6${fields}&order_by=num_user_ratings&client_id=${process.env.CLIENT_ID}`
+        `${DOMAIN}name=${search}&exact=true&limit=6${fields}&order_by=num_user_ratings&client_id=${process.env.REACT_APP_CLIENT_ID}`
       ).then((result) => {
         let games = result.data.games;
         console.log(games);
@@ -29,7 +29,7 @@ const API = {
     age = age === "all ages" ? 0 : 10;
     axios
       .get(
-        `${DOMAIN}min_players=${minPlayers}&min_age=${age}${fields}&client_id=${process.env.CLIENT_ID}`
+        `${DOMAIN}min_players=${minPlayers}&min_age=${age}${fields}&client_id=${process.env.REACT_APP_CLIENT_ID}`
       )
       .then((result) => {
         result = parse.json(result.data.games);
@@ -41,7 +41,7 @@ const API = {
 
   getRandom(history, setGame) {
     axios(
-      `https://api.boardgameatlas.com/api/search?random=true${fields}&client_id=${process.env.CLIENT_ID}`
+      `https://api.boardgameatlas.com/api/search?random=true${fields}&client_id=${process.env.REACT_APP_CLIENT_ID}`
     ).then((result) => {
       const game = result.data.games[0];
       console.log(game);
