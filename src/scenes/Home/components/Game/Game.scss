@@ -4,11 +4,8 @@
 }
 
 .card {
-  width: 250px;
-  background-color: blanchedalmond;
   display: flex;
-  flex-wrap: wrap;
-  margin: 2rem;
+  flex-direction: column;
 }
 
 .card-content {

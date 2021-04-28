@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import logo from "../../images/logo.svg";
-import "./header.css";
+import "./header.scss";
 
 function Header({ searchValue, setSearchValue }) {
   return (
