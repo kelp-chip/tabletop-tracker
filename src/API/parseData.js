@@ -8,6 +8,8 @@ const parse = {
         Number(game.price) !== 0
       ) {
         return game;
+      } else {
+        return "";
       }
     });
     games.map((game) => {
