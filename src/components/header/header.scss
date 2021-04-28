@@ -1,0 +1,21 @@
+.navbar-container {
+  border-top: 0.6rem solid #f0b214;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+}
+
+.nav-right > * {
+  margin-left: 2rem;
+}
