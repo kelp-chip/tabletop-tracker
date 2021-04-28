@@ -1,10 +1,10 @@
 import GameList from "./components/GameList";
 
-function Home() {
+function Home({ games, setGames }) {
   return (
     <>
-      Home
-      <GameList />
+      <div className="container">Home</div>
+      <GameList games={games} />
     </>
   );
 }
