@@ -1,6 +1,6 @@
 import "./search-bar.css";
 
-function SearchBar() {
+function SearchBar({ searchValue, setSearchValue }) {
   return (
     <form
       id="search-container"
@@ -9,11 +9,11 @@ function SearchBar() {
       <input
         type="text"
         id="search"
-        // value={search}
-        // onChange={(e) => setSearch(e.target.value)}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
       />
       <button id="search-btn" type="submit">
-        <i class="fas fa-search"></i>
+        <i className="fas fa-search"></i>
       </button>
     </form>
   );
