@@ -1,4 +1,4 @@
-import API from "../../apiQueries";
+import API from "../../API";
 import Select from "../select";
 import "./form.css";
 import { useState } from "react";
