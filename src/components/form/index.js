@@ -1,6 +1,6 @@
 import API from "../../API";
 import Select from "../select";
-import "./form.css";
+import "./form.scss";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 

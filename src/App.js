@@ -5,7 +5,7 @@ import Home from "./scenes/Home";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404";
 import tempData from "./tempData";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");

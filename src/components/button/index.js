@@ -1,4 +1,4 @@
-import "./button.css";
+import "./button.scss";
 
 function Button({ label }) {
   return (

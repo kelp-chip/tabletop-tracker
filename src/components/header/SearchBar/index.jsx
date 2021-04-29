@@ -1,4 +1,4 @@
-import "./search-bar.css";
+import "./search-bar.scss";
 
 function SearchBar({ searchValue, setSearchValue }) {
   return (
