@@ -4,18 +4,34 @@ import Header from "./components/Header/index";
 import Home from "./scenes/Home";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404/index";
-import PopularGames from "./tempData";
-import API from "./API";
+import PopularGames from "./popularGames";
 import "./App.scss";
+import axios from "axios";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [games, setGames] = useState([]);
 
-  function handleSearchSubmit(event) {
-    setGames([]);
-    API.getSearchedGames(event, searchValue, setGames);
-  }
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .get("/searchedGames", {
+        params: { searchValue: searchValue },
+      })
+      .then((games) => {
+        console.log(games.data);
+        setGames(games.data);
+      });
+  };
+
+  // const handleClicked = (event) => {
+  //   let id = event.target.getAttribute("data-id");
+  //   console.log(id);
+  //   axios.get("/getGame", { params: { id: id } }).then((game) => {
+  //     console.log(game.data);
+  //     setGame(game.data);
+  //   });
+  // };
 
   return (
     <BrowserRouter>
@@ -23,6 +39,7 @@ function App() {
         searchValue={searchValue}
         setSearchValue={setSearchValue}
         handleSearchSubmit={handleSearchSubmit}
+        setGames={setGames}
       />
       <main className="container">
         <Switch>

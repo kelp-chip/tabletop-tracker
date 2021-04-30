@@ -1,5 +1,4 @@
 import "./search-bar.scss";
-import API from "../../../API";
 
 function SearchBar({ searchValue, setSearchValue, handleSearchSubmit }) {
   return (

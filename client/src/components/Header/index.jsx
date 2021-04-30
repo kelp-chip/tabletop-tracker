@@ -5,24 +5,30 @@ import logo6 from "../../images/logo6.svg";
 import banner from "../../images/banner.jpeg";
 import "./header.scss";
 
-function Header({ searchValue, setSearchValue, handleSearchSubmit }) {
+function Header({ searchValue, setSearchValue, handleSearchSubmit, setGames }) {
   return (
     <>
       <header className="navbar-container">
         <div className="navbar">
-          <Link className="logo" to="/">
+          <Link
+            className="logo"
+            to="/"
+            onClick={() => {
+              setGames([]);
+            }}
+          >
             <img src={logo6}></img>
-            {/* Tabletop Tracker <i class="fas fa-map"></i> */}
-            {/* <i class="fas fa-puzzle-piece"></i> */}
           </Link>
           <div className="nav-right">
-            {/* <button>get random</button>
-            <button>search</button> */}
-            {/* <i class="fas fa-dice"></i> */}
-            {/* <div id="search-container"> */}
             <i class="fas fa-search"></i>
-            <input type="text" id="search"></input>
-            {/* </div> */}
+            <form onSubmit={(event) => handleSearchSubmit(event)}>
+              <input
+                type="text"
+                id="search"
+                value={searchValue}
+                onChange={(event) => setSearchValue(event.target.value)}
+              ></input>
+            </form>
           </div>
         </div>
       </header>

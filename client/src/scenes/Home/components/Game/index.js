@@ -1,14 +1,18 @@
 import "./Game.scss";
+import { Link } from "react-router-dom";
 
 function Game({ game }) {
   return (
     <div className="card">
       <div className="image-container">
-        <img
-          src={game.images.medium}
-          alt={`${game.name}`}
-          className="card-image"
-        ></img>
+        <Link to={`/game/${game.id}`}>
+          <img
+            src={game.images.medium}
+            alt={`${game.name}`}
+            className="card-image"
+            data-id={game.id}
+          ></img>
+        </Link>
       </div>
       <div className="card-content">
         <strong>{game.name}</strong>
