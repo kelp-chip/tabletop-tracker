@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<form
+  className="form-container"
+  onSubmit={[Function]}
+>
+  <div
+    className="selectors"
+  >
+    <label>
+      min players
+       
+      <select
+        onChange={[Function]}
+        value="2"
+      >
+        <option
+          value={1}
+        >
+          1
+        </option>
+        <option
+          value={2}
+        >
+          2
+        </option>
+        <option
+          value={3}
+        >
+          3
+        </option>
+        <option
+          value={4}
+        >
+          4
+        </option>
+        <option
+          value={5}
+        >
+          5
+        </option>
+        <option
+          value={6}
+        >
+          6
+        </option>
+      </select>
+    </label>
+    <label>
+      age
+       
+      <select
+        onChange={[Function]}
+        value="all ages"
+      >
+        <option
+          value="all ages"
+        >
+          all ages
+        </option>
+        <option
+          value="6+"
+        >
+          6+
+        </option>
+        <option
+          value="8+"
+        >
+          8+
+        </option>
+        <option
+          value="13+"
+        >
+          13+
+        </option>
+      </select>
+    </label>
+  </div>
+  <input
+    type="submit"
+  />
+</form>
+`;

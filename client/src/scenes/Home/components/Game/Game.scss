@@ -1,0 +1,36 @@
+.card-image {
+  /* max-height: 200px; */
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  margin: 0 1rem;
+  margin-top: 3rem;
+}
+
+.game-details {
+  display: flex;
+  // justify-content: space-between;
+  // background-color: cornflowerblue;
+  .fas {
+    font-size: 1.4rem;
+  }
+}
+
+.game-details > * {
+  margin-right: 3rem;
+}
+
+.image-container {
+  height: 200px;
+  overflow: hidden;
+
+  @media (max-width: 750px) {
+    height: max-content;
+  }
+}

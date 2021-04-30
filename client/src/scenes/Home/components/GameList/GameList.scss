@@ -1,0 +1,25 @@
+.games-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-top: rgb(226, 226, 226) solid 1px;
+  padding: 6rem 0;
+  margin: 6rem 0;
+}
+
+.grid {
+  display: block;
+  display: grid;
+  grid-gap: 4rem;
+  grid-row-gap: 10rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

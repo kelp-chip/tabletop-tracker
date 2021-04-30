@@ -1,0 +1,23 @@
+.form-container {
+  width: 50%;
+  background-color: aqua;
+}
+
+.form-container > * {
+  justify-content: center;
+}
+
+select,
+input {
+  padding: 5px 0.5rem;
+  font-size: 1.2rem;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+.selectors {
+  display: flex;
+  justify-content: space-around;
+}
