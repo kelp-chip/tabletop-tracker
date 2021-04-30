@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/index";
 import Home from "./scenes/Home";
 import GamePage from "./scenes/GamePage";
-import PageNotFound from "./scenes/404";
+import PageNotFound from "./scenes/404/index";
 import PopularGames from "./tempData";
 import API from "./API";
 import "./App.scss";
