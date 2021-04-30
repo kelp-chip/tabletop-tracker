@@ -2,7 +2,7 @@ import "./Form.scss";
 
 function Form() {
   return (
-    <div className="form-grid">
+    <form className="form-grid" onSubmit={() => alert("submitted")}>
       <label>
         min players
         <br />
@@ -52,8 +52,11 @@ function Form() {
           <option value="null">no limit</option>
         </select>
       </label>
-      <button>find games</button>
-    </div>
+      <input type="submit"></input>
+      <div className="dice-container">
+        <i className="fas fa-dice"></i>
+      </div>
+    </form>
   );
 }
 

@@ -23,7 +23,6 @@
     margin-top: 3rem;
     width: 100%;
   }
-  // display: flex;
 }
 
 .logo img {
@@ -32,6 +31,13 @@
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  width: 100%;
+}
+
+.logo {
+  @media (max-width: 320px) {
+    width: 90%;
+  }
 }
 
 .nav-right > * {
@@ -42,9 +48,6 @@
   font-size: 2.3rem;
   color: rgb(139, 139, 139);
   transition: all 0.2s ease-in-out;
-  // border: rgb(163, 163, 163) solid 2px;
-  // padding: 1rem;
-  // border-radius: 30px;
 }
 
 .fa-search:hover {
@@ -82,15 +85,6 @@
     }
   }
 }
-
-// #search-container {
-//   position: relative;
-//   // width: 300px;
-//   // // background-color: khaki;
-//   // @media (min-width: 768px) {
-//   //   width: 200px;
-//   // }
-// }
 
 #search {
   box-sizing: border-box;
