@@ -54,7 +54,7 @@ function Form() {
       </label>
       <input type="submit"></input>
       <div className="dice-container">
-        <i className="fas fa-dice"></i>
+        <i className="fas fa-dice" title="get random game"></i>
       </div>
     </form>
   );
