@@ -2,9 +2,17 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  border-top: rgb(226, 226, 226) solid 1px;
-  padding: 6rem 0;
+  // border-top: rgb(226, 226, 226) solid 1px;
+  padding: 1rem 0;
   margin: 6rem 0;
+}
+
+.section {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 5rem;
+  color: #3f3f3f;
 }
 
 .grid {

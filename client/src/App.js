@@ -4,14 +4,13 @@ import Header from "./components/Header/index";
 import Home from "./scenes/Home";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404";
-import tempData from "./tempData";
+import PopularGames from "./tempData";
 import API from "./API";
 import "./App.scss";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
-  // const [games, setGames] = useState([tempData[0]]);
-  const [games, setGames] = useState(tempData);
+  const [games, setGames] = useState([]);
 
   function handleSearchSubmit(event) {
     setGames([]);
@@ -31,7 +30,12 @@ function App() {
             path="/"
             exact
             render={(props) => (
-              <Home {...props} games={games} setGames={setGames} />
+              <Home
+                {...props}
+                games={games}
+                setGames={setGames}
+                PopularGames={PopularGames}
+              />
             )}
           />
           <Route path="/game/:id" component={GamePage} exact />
