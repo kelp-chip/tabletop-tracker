@@ -15,7 +15,9 @@ function Game({ game }) {
         </Link>
       </div>
       <div className="card-content">
-        <strong>{game.name}</strong>
+        <Link to={`/game/${game.id}`} className="link">
+          <strong>{game.name}</strong>
+        </Link>
         <br />
         {game.primary_publisher.name}
         <hr />

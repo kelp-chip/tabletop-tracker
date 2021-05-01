@@ -1,9 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams, withRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function GamePage() {
-  const [game, setGame] = useState(null);
+function GamePage({ game, setGame }) {
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,6 +15,6 @@ function GamePage() {
   return <>{game && game.name}</>;
 }
 
-export default GamePage;
+export default withRouter(GamePage);
 
 //...

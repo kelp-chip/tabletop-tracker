@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/index";
 import Home from "./scenes/Home";
 import GamePage from "./scenes/GamePage";
@@ -11,6 +11,7 @@ import axios from "axios";
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [games, setGames] = useState([]);
+  const [game, setGame] = useState(null);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -24,17 +25,8 @@ function App() {
       });
   };
 
-  // const handleClicked = (event) => {
-  //   let id = event.target.getAttribute("data-id");
-  //   console.log(id);
-  //   axios.get("/getGame", { params: { id: id } }).then((game) => {
-  //     console.log(game.data);
-  //     setGame(game.data);
-  //   });
-  // };
-
   return (
-    <BrowserRouter>
+    <Router>
       <Header
         searchValue={searchValue}
         setSearchValue={setSearchValue}
@@ -55,11 +47,17 @@ function App() {
               />
             )}
           />
-          <Route path="/game/:id" component={GamePage} exact />
+          <Route
+            path="/game/:id"
+            exact
+            render={(props) => (
+              <GamePage {...props} game={game} setGame={setGame} />
+            )}
+          />
           <Route path="/*" component={PageNotFound} exact />
         </Switch>
       </main>
-    </BrowserRouter>
+    </Router>
   );
 }
 
