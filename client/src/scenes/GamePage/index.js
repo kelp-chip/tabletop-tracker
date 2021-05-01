@@ -12,7 +12,17 @@ function GamePage({ game, setGame }) {
     });
   }, []);
 
-  return <>{game && game.name}</>;
+  if (game) {
+    return (
+      <>
+        {game.name}
+        <br />
+        <img src={game.images.medium}></img>
+      </>
+    );
+  } else {
+    return <>loading</>;
+  }
 }
 
 export default withRouter(GamePage);
