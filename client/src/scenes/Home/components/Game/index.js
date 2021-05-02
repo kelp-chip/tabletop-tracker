@@ -39,14 +39,7 @@ function Game({ game }) {
             {game.max_players}
           </div>
           <div>ages {game.min_age}+</div>
-          {/* <div>{game.price}</div> */}
         </div>
-        {/* <div className="game-details">
-          <div>
-            {" "}
-            {"<"} {game.max_playtime} mins
-          </div>
-        </div> */}
       </div>
     </div>
   );

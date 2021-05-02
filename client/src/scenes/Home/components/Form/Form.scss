@@ -5,6 +5,7 @@ select {
   border: none;
   font-size: 1.6rem;
   margin-top: 0.5rem;
+  margin-right: 4rem;
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -35,7 +36,6 @@ select:hover {
 }
 
 .form-grid > * {
-  margin: 1rem;
   @media (max-width: 768px) {
     width: 100%;
     justify-content: center;

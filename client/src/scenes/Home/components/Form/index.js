@@ -7,6 +7,7 @@ function Form({ handleGetRandom }) {
       <label>
         min players
         <br />
+        {/* value={this.state.value}  onChange={this.handleChange}*/}
         <select>
           <option value="1">1</option>
           <option value="2">2</option>
