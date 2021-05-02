@@ -6,16 +6,7 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://heuristic-darwin-3f91f9.netlify.app/",
-    ],
-    methods: ["GET"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.get("/searchedGames", (req, res) => {
   const { searchValue } = req.query;
@@ -32,7 +23,12 @@ app.get("/randomGame", (req, res) => {
   API.getRandom((game) => res.send(game));
 });
 
-app.listen(PORT, () => {
+app.get("/SpecifiedGames", (req, res) => {
+  const specs = req.query;
+  API.getSpecifiedGames(specs, (games) => res.send(games));
+});
+
+app.listen(process.env.PORT || PORT, () => {
   console.log(
     `Server now running on http://localhost:${PORT} ${process.env.CLIENT_ID}`
   );

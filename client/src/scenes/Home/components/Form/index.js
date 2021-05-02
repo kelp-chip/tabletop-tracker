@@ -1,14 +1,37 @@
 import "./Form.scss";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
-function Form({ handleGetRandom }) {
+function Form({ handleGetRandom, setGames }) {
+  const [minPlayers, setMinPlayers] = useState("1");
+  const [minAge, setMinAge] = useState("6");
+  const [maxPrice, setMaxPrice] = useState("30");
+  const [maxTime, setMaxTime] = useState("40");
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .get("http://localhost:8080/SpecifiedGames", {
+        params: {
+          min_players: minPlayers,
+          min_age: minAge,
+          max_price: maxPrice,
+          max_time: maxTime,
+        },
+      })
+      .then((games) => setGames(games.data));
+  };
+
   return (
-    <form className="form-grid" onSubmit={() => alert("submitted")}>
+    <form className="form-grid" onSubmit={(event) => handleFormSubmit(event)}>
       <label>
         min players
         <br />
-        {/* value={this.state.value}  onChange={this.handleChange}*/}
-        <select>
+        <select
+          value={minPlayers}
+          onChange={(event) => setMinPlayers(event.target.value)}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -20,7 +43,10 @@ function Form({ handleGetRandom }) {
       <label>
         min age
         <br />
-        <select>
+        <select
+          value={minAge}
+          onChange={(event) => setMinAge(event.target.value)}
+        >
           <option selected value="6">
             6+
           </option>
@@ -33,7 +59,10 @@ function Form({ handleGetRandom }) {
       <label>
         max price
         <br />
-        <select>
+        <select
+          value={maxPrice}
+          onChange={(event) => setMaxPrice(event.target.value)}
+        >
           <option value="10">$10</option>
           <option value="20">$20</option>
           <option value="30">$30</option>
@@ -45,7 +74,10 @@ function Form({ handleGetRandom }) {
       <label>
         max time
         <br />
-        <select>
+        <select
+          value={maxTime}
+          onChange={(event) => setMaxTime(event.target.value)}
+        >
           <option value="10">10 mins</option>
           <option value="20">20 mins</option>
           <option value="30">30 mins</option>

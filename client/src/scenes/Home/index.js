@@ -15,7 +15,7 @@ function Home({ games, setGames, PopularGames }) {
   };
   return (
     <>
-      <Form handleGetRandom={handleGetRandom}></Form>
+      <Form handleGetRandom={handleGetRandom} setGames={setGames}></Form>
       {games.length > 0 ? (
         <GameList games={games} sectionName="Search results" />
       ) : (

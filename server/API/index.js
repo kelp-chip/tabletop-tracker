@@ -22,13 +22,21 @@ const API = {
   },
 
   getSpecifiedGames(specs, cb) {
-    age = age === "all ages" && 0;
-    const hey = `min_players=${specs.min_players}&min_age=${specs.min_age}&max_price=${specs.max_price}&max_playtime=${specs.max_playtime}`;
-    axios.get(`${URL}&client_id=${process.env.CLIENT_ID}`).then((result) => {
-      result = parse.json(result.data.games);
-      console.log(result);
-      setGames(result);
-    });
+    let details = `&min_players=${specs.min_players}&min_age=${specs.min_age}`;
+    console.log(specs.max_price);
+    if (specs.max_price !== "null") {
+      details += `&max_price=${specs.max_price}`;
+    }
+    if (specs.max_time !== "null") {
+      details += `&max_time=${specs.max_time}`;
+    }
+    console.log(details);
+    axios
+      .get(`${URL}${details}&client_id=${process.env.CLIENT_ID}`)
+      .then((result) => {
+        result = parse.json(result.data.games);
+        cb(result);
+      });
     return;
   },
 
