@@ -24,18 +24,19 @@ function GamePage({ game, setGame }) {
           <div className="game-details">
             <ul>
               <li>
-                <i class="fas fa-user-friends icon"></i> {game.min_players} -{" "}
-                {game.max_players} players
+                <i className="fas fa-user-friends icon"></i> {game.min_players}{" "}
+                - {game.max_players} players
               </li>
               <li>
-                <i class="fas fa-birthday-cake icon"></i> {game.min_age} years +
+                <i className="fas fa-birthday-cake icon"></i> {game.min_age}{" "}
+                years +
               </li>
               <li>
-                <i class="fas fa-hourglass-half icon"></i> {game.min_playtime}{" "}
-                mins to {game.max_playtime} mins
+                <i className="fas fa-hourglass-half icon"></i>{" "}
+                {game.min_playtime} mins to {game.max_playtime} mins
               </li>
               <li>
-                <i class="fas fa-tag icon"></i> ${game.price}
+                <i className="fas fa-tag icon"></i> ${game.price}
               </li>
               <li>
                 Published in {game.year_published} by{" "}

@@ -27,7 +27,7 @@ function Header({
             <img src={logo6}></img>
           </Link>
           <div className="nav-right">
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
             <form onSubmit={(event) => handleSearchSubmit(event)}>
               <input
                 type="text"

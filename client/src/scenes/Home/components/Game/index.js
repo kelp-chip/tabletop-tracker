@@ -35,7 +35,7 @@ function Game({ game }) {
         <hr />
         <div className="game-details">
           <div>
-            <i class="fas fa-user-friends"></i> {game.min_players} -{" "}
+            <i className="fas fa-user-friends"></i> {game.min_players} -{" "}
             {game.max_players}
           </div>
           <div>ages {game.min_age}+</div>
