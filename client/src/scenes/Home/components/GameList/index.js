@@ -1,9 +1,8 @@
 import Game from "../Game";
 import "./GameList.scss";
-import { useEffect } from "react";
 
 function GameList({ games, sectionName }) {
-  let list = games.map((game) => <Game game={game} />);
+  let list = games.map((game) => <Game game={game} key={game.id} />);
   return (
     <div className="games-container">
       <div className="section">{sectionName}</div>

@@ -1,5 +1,4 @@
 import "./Form.scss";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
@@ -47,7 +46,7 @@ function Form({ handleGetRandom, setGames }) {
           value={minAge}
           onChange={(event) => setMinAge(event.target.value)}
         >
-          <option selected value="6">
+          <option defaultValue value="6">
             6+
           </option>
           <option value="7">7+</option>

@@ -1,7 +1,6 @@
 import { useParams, withRouter } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-// import { useSpring, animated } from "react-spring";
 import ReactHtmlParser from "react-html-parser";
 import "./GamePage.scss";
 
@@ -13,14 +12,14 @@ function GamePage({ game, setGame }) {
       console.log(game.data);
       setGame(game.data);
     });
-  }, []);
+  });
 
   if (game) {
     return (
       <div className="game-container">
         <h1>{game.name}</h1>
         <div className="top-section">
-          <img src={game.images.medium}></img>
+          <img src={game.images.medium} alt={`${game.name}`}></img>
           <div className="game-details">
             <ul>
               <li>
