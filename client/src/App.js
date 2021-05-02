@@ -7,6 +7,7 @@ import PageNotFound from "./scenes/404/index";
 import PopularGames from "./popularGames";
 import "./App.scss";
 import axios from "axios";
+require("dotenv").config();
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
