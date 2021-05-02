@@ -9,9 +9,13 @@ function Home({ games, setGames, PopularGames }) {
 
   const handleGetRandom = () => {
     let id = returnId();
-    axios.get("/getGame", { params: { id: id } }).then((game) => {
-      history.push(`/game/${game.data.id}`);
-    });
+    axios
+      .get(`${process.env.REACT_APP_SERVER_URL}/getGame`, {
+        params: { id: id },
+      })
+      .then((game) => {
+        history.push(`/game/${game.data.id}`);
+      });
   };
   return (
     <>

@@ -8,11 +8,14 @@ function GamePage({ game, setGame }) {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get("/getGame", { params: { id: id } }).then((game) => {
-      console.log(game.data);
-      setGame(game.data);
-    });
-  });
+    axios
+      .get(`${process.env.REACT_APP_SERVER_URL}/getGame`, {
+        params: { id: id },
+      })
+      .then((game) => {
+        setGame(game.data);
+      });
+  }, [id, setGame]);
 
   if (game) {
     return (

@@ -17,7 +17,7 @@ function App() {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     axios
-      .get("/searchedGames", {
+      .get(`${process.env.REACT_APP_SERVER_URL}/searchedGames`, {
         params: { searchValue: searchValue },
       })
       .then(async (games) => {
