@@ -5,7 +5,13 @@ import logo6 from "../../images/logo6.svg";
 import banner from "../../images/banner.jpeg";
 import "./header.scss";
 
-function Header({ searchValue, setSearchValue, handleSearchSubmit, setGames }) {
+function Header({
+  searchValue,
+  setSearchValue,
+  handleSearchSubmit,
+  setGames,
+  setGame,
+}) {
   return (
     <>
       <header className="navbar-container">
@@ -13,8 +19,9 @@ function Header({ searchValue, setSearchValue, handleSearchSubmit, setGames }) {
           <Link
             className="logo"
             to="/"
-            onClick={() => {
-              setGames([]);
+            onClick={async () => {
+              await setGames([]);
+              await setGame(null);
             }}
           >
             <img src={logo6}></img>

@@ -19,9 +19,10 @@ function App() {
       .get("/searchedGames", {
         params: { searchValue: searchValue },
       })
-      .then((games) => {
+      .then(async (games) => {
         console.log(games.data);
-        setGames(games.data);
+        await setGames(games.data);
+        await setSearchValue("");
       });
   };
 
@@ -32,6 +33,7 @@ function App() {
         setSearchValue={setSearchValue}
         handleSearchSubmit={handleSearchSubmit}
         setGames={setGames}
+        setGame={setGame}
       />
       <main className="container">
         <Switch>

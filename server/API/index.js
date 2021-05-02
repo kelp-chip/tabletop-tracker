@@ -12,7 +12,7 @@ const API = {
     searchValue = searchValue.toLowerCase();
     axios
       .get(
-        `${URL}name=${searchValue}&exact=true&order_by=num_user_ratings&client_id=${process.env.CLIENT_ID}`
+        `${URL}name=${searchValue}&exact=true&limit=90&client_id=${process.env.CLIENT_ID}`
       )
       .then((result) => {
         let games = result.data.games;
@@ -37,7 +37,6 @@ const API = {
       (result) => {
         const game = result.data.games[0];
         console.log(game);
-        game.description = parse.text(game.description);
         cb(game);
       }
     );
@@ -46,7 +45,6 @@ const API = {
     axios(`${URL}ids=${id}&client_id=${process.env.CLIENT_ID}`).then(
       (result) => {
         const game = result.data.games[0];
-        game.description = parse.text(game.description);
         cb(game);
       }
     );

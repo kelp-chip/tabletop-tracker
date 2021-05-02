@@ -3,9 +3,10 @@ const parse = {
     games = games.filter((game) => {
       if (
         !game.name.includes("Promo") &&
-        game.min_age !== null &&
-        game.min_age !== 0 &&
-        Number(game.price) !== 0
+        game.name &&
+        game.type === "game" &&
+        game.min_age !== null
+        // Number(game.price) !== 0
       ) {
         return game;
       } else {
@@ -19,10 +20,6 @@ const parse = {
       return game;
     });
     return games;
-  },
-
-  text(desc) {
-    return desc.toString().replace(/(<([^>]+)>)/gi, "");
   },
 };
 

@@ -53,7 +53,7 @@ function Form({ handleGetRandom }) {
           <option value="null">no limit</option>
         </select>
       </label>
-      <input type="submit"></input>
+      <input type="submit" value="Find Games"></input>
       <div className="dice-container">
         <i
           className="fas fa-dice"

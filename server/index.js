@@ -3,9 +3,20 @@ const app = express();
 const PORT = 8080;
 require("dotenv").config();
 const API = require("./API");
+const cors = require("cors");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://heuristic-darwin-3f91f9.netlify.app/",
+    ],
+    methods: ["GET"],
+    credentials: true,
+  })
+);
 
 app.get("/searchedGames", (req, res) => {
   const { searchValue } = req.query;
