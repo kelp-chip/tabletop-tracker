@@ -19,7 +19,7 @@ function App() {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     axios
-      .get("/searchedGames", {
+      .get("http://localhost:8080/searchedGames", {
         params: { searchValue: searchValue },
       })
       .then(async (games) => {
