@@ -14,6 +14,8 @@ function App() {
   const [games, setGames] = useState([]);
   const [game, setGame] = useState(null);
 
+  // const [minAge, setMinAge] = useState("")
+
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     axios
