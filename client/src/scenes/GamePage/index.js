@@ -62,5 +62,3 @@ function GamePage({ game, setGame }) {
 }
 
 export default withRouter(GamePage);
-
-//...
