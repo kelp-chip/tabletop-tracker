@@ -1,6 +1,6 @@
 # Tabletop Tracker
 
-[Live site](tabletoptracker.netlify.app/)
+[Live site](http://tabletoptracker.netlify.app/)
 
 ---
 
