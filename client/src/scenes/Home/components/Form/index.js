@@ -11,7 +11,7 @@ function Form({ handleGetRandom, setGames }) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     axios
-      .get("http://localhost:8080/SpecifiedGames", {
+      .get(`${process.env.REACT_APP_SERVER_URL}/SpecifiedGames`, {
         params: {
           min_players: minPlayers,
           min_age: minAge,
