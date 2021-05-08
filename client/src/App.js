@@ -70,7 +70,7 @@ function App() {
           </p>
           <p>
             <a href="https://github.com/lexykio/tabletop-tracker">
-              <i class="fab fa-github"></i>
+              <i className="fab fa-github"></i>
             </a>
           </p>
         </div>
