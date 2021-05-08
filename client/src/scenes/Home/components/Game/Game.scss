@@ -32,12 +32,16 @@
 .short-details {
   display: flex;
   margin-left: 0;
-  justify-content: space-between;
+  justify-content: space-around;
   i.fas.icon,
   i {
     font-size: 1.4rem;
     margin: 0;
     margin-right: 0.5rem;
     padding: 0;
+  }
+
+  @media (min-width: 1000px) {
+    justify-content: space-between;
   }
 }
