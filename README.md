@@ -4,4 +4,4 @@
 
 ---
 
-A fully responsive, single-page web application that lets users browse and search for different board games.
+A fully responsive, single-page web application that lets users browse and search for board games.
