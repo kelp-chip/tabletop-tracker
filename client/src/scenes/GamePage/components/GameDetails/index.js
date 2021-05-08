@@ -19,10 +19,8 @@ export default function GameDetails({ game }) {
           <i className="fas fa-tag icon"></i> ${game.price}
         </li>
         <li>
-          Published in {game.year_published} by {game.primary_publisher.name}
-        </li>
-        <li>
-          <a href={game.official_url}>official site</a>
+          Published in {game.year_published} by{" "}
+          <a href={game.official_url}>{game.primary_publisher.name}</a>
         </li>
       </ul>
     </div>
