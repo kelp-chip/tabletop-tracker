@@ -4,4 +4,6 @@
 
 ---
 
-A fully responsive, single-page web application that lets users browse and search for board games.
+A fully responsive, single-page web application that enables users to browse or search for specific board games.
+
+This app uses Board Game Atlas's API for all board game data.
