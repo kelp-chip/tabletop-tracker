@@ -11,6 +11,10 @@ select {
   }
 }
 
+form input[type="submit"] {
+  margin-top: 3rem;
+}
+
 label {
   font-weight: 600;
   color: #3f3f3f;

@@ -29,37 +29,52 @@ function App() {
 
   return (
     <Router>
-      <Header
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        handleSearchSubmit={handleSearchSubmit}
-        setGames={setGames}
-        setGame={setGame}
-      />
-      <main className="container">
-        <Switch>
-          <Route
-            path="/"
-            exact
-            render={(props) => (
-              <Home
-                {...props}
-                games={games}
-                setGames={setGames}
-                PopularGames={PopularGames}
-              />
-            )}
-          />
-          <Route
-            path="/game/:id"
-            exact
-            render={(props) => (
-              <GamePage {...props} game={game} setGame={setGame} />
-            )}
-          />
-          <Route path="/*" component={PageNotFound} exact />
-        </Switch>
-      </main>
+      <div className="main-container">
+        <Header
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          handleSearchSubmit={handleSearchSubmit}
+          setGames={setGames}
+          setGame={setGame}
+        />
+        <main className="container">
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={(props) => (
+                <Home
+                  {...props}
+                  games={games}
+                  setGames={setGames}
+                  PopularGames={PopularGames}
+                />
+              )}
+            />
+            <Route
+              path="/game/:id"
+              exact
+              render={(props) => (
+                <GamePage {...props} game={game} setGame={setGame} />
+              )}
+            />
+            <Route path="/*" component={PageNotFound} exact />
+          </Switch>
+        </main>
+        <footer>
+          <div>
+            <p>
+              Built using the{" "}
+              <a href="https://www.boardgameatlas.com/">Board Game Atlas</a> API
+            </p>
+            <p>
+              <a href="https://github.com/lexykio/tabletop-tracker">
+                <i class="fab fa-github"></i>
+              </a>
+            </p>
+          </div>
+        </footer>
+      </div>
     </Router>
   );
 }

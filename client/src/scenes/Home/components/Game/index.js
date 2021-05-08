@@ -33,12 +33,19 @@ function Game({ game }) {
         <br />
         {game.primary_publisher && game.primary_publisher.name}
         <hr />
-        <div className="game-details">
+        <div className="short-details">
           <div>
-            <i className="fas fa-user-friends"></i> {game.min_players} -{" "}
+            <i className="fas fa-user-friends icon"></i> {game.min_players} -{" "}
             {game.max_players}
           </div>
-          <div>ages {game.min_age}+</div>
+          <div>
+            <i className="fas fa-birthday-cake icon"></i>
+            {game.min_age}+
+          </div>
+          <div>
+            <i className="fas fa-hourglass-half icon"></i> {game.max_playtime}
+            mins
+          </div>
         </div>
       </div>
     </div>
