@@ -4,7 +4,7 @@ import Header from "./components/Header/index";
 import Home from "./scenes/Home";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404/index";
-import PopularGames from "./popularGames";
+import PopularGames from "./storedData/popularGames";
 import "./App.scss";
 import axios from "axios";
 require("dotenv").config();

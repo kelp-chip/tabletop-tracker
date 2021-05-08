@@ -2,7 +2,7 @@ import GameList from "./components/GameList";
 import Form from "./components/Form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import returnId from "../../randomGames";
+import returnId from "../../storedData/randomGames";
 
 function Home({ games, setGames, PopularGames }) {
   let history = useHistory();

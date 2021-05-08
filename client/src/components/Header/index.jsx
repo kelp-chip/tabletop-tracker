@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo6 from "../../images/logo6.svg";
+import logo from "../../images/logo.svg";
 import "./header.scss";
 
 function Header({
@@ -21,7 +21,7 @@ function Header({
               await setGame(null);
             }}
           >
-            <img src={logo6} alt="tabletop tracker logo"></img>
+            <img src={logo} alt="tabletop tracker logo"></img>
           </Link>
           <div className="nav-right">
             <i className="fas fa-search"></i>
