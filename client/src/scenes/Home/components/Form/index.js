@@ -1,6 +1,7 @@
 import "./Form.scss";
 import { useState } from "react";
 import axios from "axios";
+import GetRandom from "../../../../components/GetRandom";
 
 function Form({ handleGetRandom, setGames }) {
   const [minPlayers, setMinPlayers] = useState("1");
@@ -86,13 +87,14 @@ function Form({ handleGetRandom, setGames }) {
         </select>
       </label>
       <input type="submit" value="Find Games"></input>
-      <div className="dice-container">
+      <GetRandom handleGetRandom={handleGetRandom} />
+      {/* <div className="dice-container">
         <i
           className="fas fa-dice"
           title="get random game"
           onClick={() => handleGetRandom()}
         ></i>
-      </div>
+      </div> */}
     </form>
   );
 }

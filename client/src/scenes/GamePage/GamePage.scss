@@ -9,37 +9,16 @@
   img {
     max-width: 300px;
   }
-}
-
-.game-details {
-  margin-left: 6rem;
-  font-size: 1.6rem;
-  display: flex;
-  flex-direction: column;
+  @media (max-width: 768px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 .game-description {
   padding: 3rem 1rem;
   border-top: 1px rgb(194, 194, 194) solid;
-  border-bottom: 1px rgb(194, 194, 194) solid;
   margin-top: 2rem;
   margin-bottom: 4rem;
   line-height: 1.8rem;
-}
-ul {
-  padding: 0;
-  margin: 0;
-  margin-left: 1rem;
-}
-
-li {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 2rem;
-}
-
-i.fas.icon {
-  display: inline-block;
-  margin-right: 2rem;
 }

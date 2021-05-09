@@ -1,11 +1,14 @@
-// $button-color: #f3f4f6;
 $button-color: #f0b214;
-// $button-border: rgba(27, 31, 35, 0.15);
 $button-border: #ce970d;
 
 html {
   font-size: 10px;
-  // background-color: #f0b214;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
 }
 
 body {
@@ -38,7 +41,41 @@ button {
   box-shadow: rgba(75, 75, 75, 0.144) 0px 1px 4px 1px;
 }
 
+.main-container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 120px;
+}
+
 .container {
   width: 70%;
   margin: auto;
+}
+
+footer {
+  background-color: $button-color;
+  position: absolute;
+  bottom: 0;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+
+  i {
+    font-size: 3rem;
+  }
+}
+
+a {
+  color: black;
+  transition: ease 0.3s;
+}
+
+a:hover {
+  color: rgb(59, 59, 59);
 }

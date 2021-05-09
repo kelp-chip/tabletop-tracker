@@ -1,11 +1,9 @@
-.card-image {
-  /* max-height: 200px; */
-  width: 100%;
-}
-
 .card {
   display: flex;
   flex-direction: column;
+}
+.card-image {
+  width: 100%;
 }
 
 .card-content {
@@ -13,24 +11,11 @@
   margin-top: 3rem;
 }
 
-.game-details {
-  display: flex;
-  // justify-content: space-between;
-  // background-color: cornflowerblue;
-  .fas {
-    font-size: 1.4rem;
-  }
-}
-
-.game-details > * {
-  margin-right: 3rem;
-}
-
 .image-container {
   height: 200px;
   overflow: hidden;
 
-  @media (max-width: 750px) {
+  @media (max-width: 767px) {
     height: max-content;
   }
 }
@@ -42,4 +27,21 @@
 
 .chosen {
   text-decoration: underline;
+}
+
+.short-details {
+  display: flex;
+  margin-left: 0;
+  justify-content: space-around;
+  i.fas.icon,
+  i {
+    font-size: 1.4rem;
+    margin: 0;
+    margin-right: 0.5rem;
+    padding: 0;
+  }
+
+  @media (min-width: 1000px) {
+    justify-content: space-between;
+  }
 }
