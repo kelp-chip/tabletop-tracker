@@ -45,20 +45,3 @@ select:hover {
     justify-content: center;
   }
 }
-
-.fa-dice {
-  font-size: 3.7rem;
-}
-
-.dice-container {
-  margin-left: 4rem;
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-end;
-  color: rgb(180, 180, 180);
-  @media (max-width: 768px) {
-    margin: 0;
-    margin-top: 2rem;
-    justify-content: center;
-  }
-}

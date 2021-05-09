@@ -5,6 +5,7 @@ import Home from "./scenes/Home";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404/index";
 import PopularGames from "./storedData/popularGames";
+import returnId from "./storedData/randomGames";
 import "./App.scss";
 import axios from "axios";
 require("dotenv").config();
@@ -29,6 +30,17 @@ function App() {
       });
   };
 
+  const handleGetRandom = () => {
+    let id = returnId();
+    axios
+      .get(`${process.env.REACT_APP_SERVER_URL}/getGame`, {
+        params: { id: id },
+      })
+      .then((game) => {
+        history.push(`/game/${game.data.id}`);
+      });
+  };
+
   return (
     <div className="main-container">
       <Header
@@ -49,6 +61,7 @@ function App() {
                 games={games}
                 setGames={setGames}
                 PopularGames={PopularGames}
+                handleGetRandom={handleGetRandom}
               />
             )}
           />
@@ -56,7 +69,12 @@ function App() {
             path="/game/:id"
             exact
             render={(props) => (
-              <GamePage {...props} game={game} setGame={setGame} />
+              <GamePage
+                {...props}
+                game={game}
+                setGame={setGame}
+                handleGetRandom={handleGetRandom}
+              />
             )}
           />
           <Route path="/*" component={PageNotFound} exact />
