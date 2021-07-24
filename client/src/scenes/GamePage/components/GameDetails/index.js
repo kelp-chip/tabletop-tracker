@@ -1,26 +1,44 @@
 import "./GameDetails.scss";
 
 export default function GameDetails({ game }) {
+  let {
+    min_playtime,
+    max_playtime,
+    min_age,
+    min_players,
+    max_players,
+    price,
+    year_published,
+    official_url,
+    primary_publisher,
+  } = game;
+
   return (
     <div className="game-details">
       <ul>
         <li>
-          <i className="fas fa-user-friends icon"></i> {game.min_players} -{" "}
-          {game.max_players} players
+          <i className="fas fa-user-friends icon"></i> {min_players} -{" "}
+          {max_players} players
         </li>
         <li>
-          <i className="fas fa-birthday-cake icon"></i> {game.min_age} years +
+          <i className="fas fa-birthday-cake icon"></i> {min_age} years +
         </li>
         <li>
-          <i className="fas fa-hourglass-half icon"></i> {game.min_playtime}{" "}
-          mins to {game.max_playtime} mins
+          <i className="fas fa-hourglass-half icon"></i>
+          {min_playtime === max_playtime
+            ? `${max_playtime} mins`
+            : `${min_playtime} mins to 
+          ${max_playtime} mins`}
+        </li>
+
+        <li>
+          <i className="fas fa-tag icon"></i>
+
+          {Number(price) === 0 ? "price not available" : `$${price}`}
         </li>
         <li>
-          <i className="fas fa-tag icon"></i> ${game.price}
-        </li>
-        <li>
-          Published in {game.year_published} by{" "}
-          <a href={game.official_url}>{game.primary_publisher.name}</a>
+          Published in {year_published} by{" "}
+          <a href={official_url}>{primary_publisher.name}</a>
         </li>
       </ul>
     </div>

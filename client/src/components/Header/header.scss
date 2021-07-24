@@ -27,9 +27,9 @@
 }
 
 #wishlist {
-  position: absolute;
-  right: 30px;
-  top: 60px;
+  position: fixed;
+  left: 90%;
+  top: 70px;
   img {
     &:hover {
       width: 45px;
@@ -37,8 +37,18 @@
   }
 
   &:hover {
-    font-size: 1.2em;
     cursor: pointer;
+  }
+  @media (max-width: 520px) {
+    width: max-content;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    img {
+      &:hover {
+        width: 40px;
+      }
+    }
   }
 }
 
