@@ -12,6 +12,7 @@ function Header({
 }) {
   return (
     <>
+      {console.log(wishlist)}
       <header className="navbar-container">
         <div id="wishlist">
           <img

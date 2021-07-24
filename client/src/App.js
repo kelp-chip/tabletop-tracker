@@ -16,11 +16,23 @@ function App() {
   const [games, setGames] = useState([]);
   const [game, setGame] = useState(null);
   const history = useHistory();
-  const [wishlist, setWishlist] = useState();
+  const [wishlist, setWishlist] = useState(getWishlist());
   const providerWishlist = useMemo(
     () => ({ wishlist, setWishlist }),
     [wishlist, setWishlist]
   );
+
+  function getWishlist() {
+    let lsWishlist = localStorage.getItem("ttwishlist");
+    if (lsWishlist) {
+      //remove trailing commas
+      lsWishlist = lsWishlist.replace(/(^,)|(,$)/g, "");
+      //convert localStorage string value into an array
+      lsWishlist = lsWishlist.split(",");
+      return lsWishlist;
+    }
+    return [];
+  }
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +41,6 @@ function App() {
         params: { searchValue: searchValue },
       })
       .then(async (games) => {
-        console.log(games.data);
         await setGames(games.data);
         await setSearchValue("");
         history.push("/");
@@ -45,8 +56,6 @@ function App() {
   return (
     <WishlistContext.Provider value={providerWishlist}>
       <div className="main-container">
-        {console.log(wishlist)}
-        {console.log(typeof wishlist)}
         <Header
           searchValue={searchValue}
           setSearchValue={setSearchValue}

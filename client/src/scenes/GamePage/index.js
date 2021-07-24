@@ -1,37 +1,31 @@
 import { useParams, withRouter } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import GameDetails from "./components/GameDetails/index";
 import ReactHtmlParser from "react-html-parser";
 import GetRandom from "../../components/GetRandom";
 import { WishlistContext } from "../../context/wishlistContext";
+import toggleWishlist from "../../helpers/toggleWishlist/toggleWishlist";
+import isGameInWishlist from "../../helpers/isGameInWishlist/isGameInWishlist";
 import "./GamePage.scss";
 
-function GamePage({ game, setGame, handleGetRandom, wishlist }) {
+function GamePage({ game, setGame, handleGetRandom }) {
   const { wishlist, setWishlist } = useContext(WishlistContext);
-  const isSaved = () => {
-    console.log("hey");
-    if (game) {
-      if (wishlist.indexOf(game.id) === -1) {
-        setSaved(true);
-      } else {
-        setSaved(false);
-      }
-    }
-  };
-
   const { id } = useParams();
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
+    //get game data
     axios
       .get(`${process.env.REACT_APP_SERVER_URL}/game/${id}`)
       .then(async (game) => {
         await setGame(game.data);
-        await isSaved();
-        console.log(saved);
+        let { saved: isSaved } = await isGameInWishlist(id, wishlist);
+        await setSaved(isSaved);
       });
-  }, []);
+  }, [id, setGame, saved, wishlist]);
 
   if (game) {
     return (
@@ -42,7 +36,11 @@ function GamePage({ game, setGame, handleGetRandom, wishlist }) {
             <h1>{game.name}</h1>
             <button
               onClick={async () => {
-                await setSaved(!saved);
+                let wishlistCopy = [...wishlist];
+                const res = await toggleWishlist(game.id, wishlistCopy);
+                console.log(typeof res.wishlist);
+                await setWishlist(res.wishlist);
+                await setSaved(res.saved);
               }}
             >
               {saved ? (

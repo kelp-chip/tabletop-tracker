@@ -1,13 +1,14 @@
+import isGameInWishlist from "../isGameInWishlist/isGameInWishlist";
+
 export default function toggleWishlist(id, wishlist) {
-  let index = wishlist.indexOf(id);
-  let saved;
-  if (index === -1) {
+  let { saved, index } = isGameInWishlist(id, wishlist);
+  if (!saved) {
     wishlist.unshift(id);
-    saved = true;
   } else {
     wishlist.splice(index, 1);
-    saved = false;
   }
-  localStorage.setItem("ttwishlist", wishlist);
+  let wishlistStr = wishlist.join(",");
+  localStorage.setItem("ttwishlist", wishlistStr);
+  saved = !saved;
   return { wishlist, saved };
 }
