@@ -3,7 +3,7 @@ import dice from "../../images/dice.svg";
 
 export default function GetRandom({ handleGetRandom }) {
   return (
-    <div className="dice-container">
+    <div className="dice-container" title="get random">
       <img
         src={dice}
         alt="dice"

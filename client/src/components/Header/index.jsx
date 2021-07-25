@@ -13,14 +13,16 @@ function Header({
   return (
     <>
       <header className="navbar-container">
-        <div id="wishlist">
-          <img
-            alt="wishlist"
-            src="https://image.flaticon.com/icons/png/512/1377/1377656.png"
-            width="40px"
-          ></img>
-          <strong>{wishlist.length}</strong>
-        </div>
+        <Link to="/wishlist">
+          <div id="wishlist" title="wishlist">
+            <img
+              alt="wishlist"
+              src="https://image.flaticon.com/icons/png/512/1377/1377656.png"
+              width="40px"
+            ></img>
+            <strong>{wishlist.length}</strong>
+          </div>
+        </Link>
         <div className="navbar">
           <Link
             className="logo"
