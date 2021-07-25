@@ -1,6 +1,11 @@
-# Tabletop Tracker
+# Tabletop Tracker 
+<img width="30" alt="Screen Shot 2021-07-24 at 10 24 26 PM" src="https://user-images.githubusercontent.com/25832984/126885785-bbe43718-2e70-4c43-8ae8-9256189b4e96.png"> <img width="30" alt="Screen Shot 2021-07-24 at 10 24 26 PM" src="https://user-images.githubusercontent.com/25832984/126885937-5fd81413-dfe5-4624-9b39-64dbf5e61d68.png"> <img width="30" alt="Screen Shot 2021-07-24 at 10 24 26 PM" src="https://user-images.githubusercontent.com/25832984/126885854-fe86cfa4-7149-49c0-bf87-316df5d66832.png"> <img width="30" alt="Screen Shot 2021-07-24 at 10 24 26 PM" src="https://user-images.githubusercontent.com/25832984/126885856-33f012b7-20b2-4fe5-90d3-bdb12dd53600.png">
 
-A fully responsive, single-page web application that enables users to browse or search for specific board games.
+
+
+
+
+A fully responsive, single-page web application that lets users browse and search for tabletop games.
 
 This app uses Board Game Atlas's API for all board game data.
 
