@@ -7,6 +7,7 @@ import GetRandom from "../../components/GetRandom";
 import { WishlistContext } from "../../context/wishlistContext";
 import toggleWishlist from "../../helpers/toggleWishlist/toggleWishlist";
 import isGameInWishlist from "../../helpers/isGameInWishlist/isGameInWishlist";
+import Loading from "../../components/Loading";
 import "./GamePage.scss";
 
 function GamePage({ game, setGame, handleGetRandom }) {
@@ -65,12 +66,7 @@ function GamePage({ game, setGame, handleGetRandom }) {
       </>
     );
   } else {
-    return (
-      <>
-        <GetRandom handleGetRandom={handleGetRandom}></GetRandom>
-        <>loading</>;
-      </>
-    );
+    return <Loading />;
   }
 }
 
