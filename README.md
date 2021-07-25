@@ -11,7 +11,7 @@ This app uses Board Game Atlas's API for all board game data.
 
 Visit [live site here](http://tabletoptracker.netlify.app/).
 
-** Please note that server goes to sleep when inactive causing a noticeable lag when you make your first server request. Sorry for the inconvenience.
+!! Please note that server goes to sleep when inactive causing a noticeable lag when you make your first server request. Sorry for the inconvenience.
 
 <img width="600" alt="Screen Shot 2021-07-24 at 10 24 26 PM" src="https://user-images.githubusercontent.com/25832984/126885613-e027c769-e8a5-4c92-b79c-decbc9792f33.png">
 
