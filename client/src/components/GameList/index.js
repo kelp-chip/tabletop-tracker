@@ -1,4 +1,5 @@
 import Game from "../Game";
+import Loading from "../Loading";
 import "./GameList.scss";
 
 function GameList({ games, sectionName }) {
@@ -6,7 +7,7 @@ function GameList({ games, sectionName }) {
   return (
     <div className="games-container">
       <div className="section">{sectionName}</div>
-      <div className="grid">{list}</div>
+      {games.length ? <div className="grid">{list}</div> : <Loading />}
     </div>
   );
 }

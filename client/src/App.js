@@ -32,9 +32,10 @@ function App() {
     return [];
   }
 
-  const handleSearchSubmit = (event) => {
+  const handleSearchSubmit = async (event) => {
     event.preventDefault();
-    axios
+    await setGames([]);
+    await axios
       .get(`${process.env.REACT_APP_SERVER_URL}/games/search`, {
         params: { searchValue: searchValue },
       })
@@ -45,8 +46,9 @@ function App() {
       });
   };
 
-  const handleGetRandom = () => {
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/game`).then((game) => {
+  const handleGetRandom = async () => {
+    await setGame(null);
+    await axios.get(`${process.env.REACT_APP_SERVER_URL}/game`).then((game) => {
       history.push(`/game/${game.data.id}`);
     });
   };
