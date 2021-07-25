@@ -1,15 +1,18 @@
 import GameList from "../../components/GameList";
+import GetRandom from "../../components/GetRandom";
 import { withRouter } from "react-router-dom";
 
-function UserWishlist({ wishlist }) {
+function UserWishlist({ wishlist, handleGetRandom }) {
   return (
     <>
-      {/* <Form handleGetRandom={handleGetRandom} setGames={setGames}></Form> */}
-      {wishlist.length > 0 ? (
-        <GameList games={wishlist} sectionName="Wishlist" />
-      ) : (
-        <span>wishlist is empty</span>
-      )}
+      <GetRandom handleGetRandom={handleGetRandom}></GetRandom>
+      <div className="wishlist-container">
+        {wishlist.length > 0 ? (
+          <GameList games={wishlist} sectionName="Wishlist" />
+        ) : (
+          <span>wishlist is empty</span>
+        )}
+      </div>
     </>
   );
 }

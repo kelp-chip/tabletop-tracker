@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Header from "./components/Header/index";
 import Home from "./scenes/Home";
+import UserWishlist from "./scenes/UserWishlist";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404/index";
 import PopularGames from "./storedData/popularGames";
@@ -77,6 +78,17 @@ function App() {
               )}
             />
             <Route
+              path="/wishlist"
+              exact
+              render={(props) => (
+                <UserWishlist
+                  {...props}
+                  wishlist={wishlist}
+                  handleGetRandom={handleGetRandom}
+                />
+              )}
+            />
+            <Route
               path="/game/:id"
               exact
               render={(props) => (
@@ -89,6 +101,7 @@ function App() {
                 />
               )}
             />
+
             <Route path="/*" component={PageNotFound} exact />
           </Switch>
         </main>
