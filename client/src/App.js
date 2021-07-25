@@ -25,11 +25,8 @@ function App() {
   function getWishlist() {
     let lsWishlist = localStorage.getItem("ttwishlist");
     if (lsWishlist) {
-      //remove trailing commas
-      lsWishlist = lsWishlist.replace(/(^,)|(,$)/g, "");
-      //convert localStorage string value into an array
-      lsWishlist = lsWishlist.split(",");
-      return lsWishlist;
+      console.log(JSON.parse(lsWishlist));
+      return JSON.parse(lsWishlist);
     }
     return [];
   }

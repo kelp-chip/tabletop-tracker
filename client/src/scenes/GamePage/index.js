@@ -37,8 +37,7 @@ function GamePage({ game, setGame, handleGetRandom }) {
             <button
               onClick={async () => {
                 let wishlistCopy = [...wishlist];
-                const res = await toggleWishlist(game.id, wishlistCopy);
-                console.log(typeof res.wishlist);
+                const res = await toggleWishlist(game, wishlistCopy);
                 await setWishlist(res.wishlist);
                 await setSaved(res.saved);
               }}

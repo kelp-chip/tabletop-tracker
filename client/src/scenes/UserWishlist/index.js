@@ -1,10 +1,17 @@
-import { useParams, withRouter } from "react-router-dom";
-import ReactHtmlParser from "react-html-parser";
-import GetRandom from "../../components/GetRandom";
-import axios from "axios";
+import GameList from "../../components/GameList";
+import { withRouter } from "react-router-dom";
 
-function UserWishlist({ games }) {
-  return <></>;
+function UserWishlist({ wishlist }) {
+  return (
+    <>
+      {/* <Form handleGetRandom={handleGetRandom} setGames={setGames}></Form> */}
+      {wishlist.length > 0 ? (
+        <GameList games={wishlist} sectionName="Wishlist" />
+      ) : (
+        <span>wishlist is empty</span>
+      )}
+    </>
+  );
 }
 
 export default withRouter(UserWishlist);
