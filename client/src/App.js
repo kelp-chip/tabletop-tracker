@@ -1,11 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Header from "./components/Header/index";
 import Home from "./scenes/Home";
 import UserWishlist from "./scenes/UserWishlist";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404/index";
-import PopularGames from "./storedData/popularGames";
 import "./App.scss";
 import axios from "axios";
 import { WishlistContext } from "./context/wishlistContext";
@@ -46,12 +45,22 @@ function App() {
       });
   };
 
+  const getPopularGames = () => {
+    axios
+      .get(`${process.env.REACT_APP_SERVER_URL}/games`)
+      .then((games) => setGames(games.data));
+  };
+
   const handleGetRandom = async () => {
     await setGame(null);
     await axios.get(`${process.env.REACT_APP_SERVER_URL}/game`).then((game) => {
       history.push(`/game/${game.data.id}`);
     });
   };
+
+  useEffect(() => {
+    getPopularGames();
+  }, []);
 
   return (
     <WishlistContext.Provider value={providerWishlist}>
@@ -63,6 +72,7 @@ function App() {
           setGames={setGames}
           setGame={setGame}
           wishlist={wishlist}
+          getPopularGames={getPopularGames}
         />
         <main className="container">
           <Switch>
@@ -74,7 +84,7 @@ function App() {
                   {...props}
                   games={games}
                   setGames={setGames}
-                  PopularGames={PopularGames}
+                  PopularGames={games}
                   handleGetRandom={handleGetRandom}
                 />
               )}

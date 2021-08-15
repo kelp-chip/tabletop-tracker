@@ -33,7 +33,7 @@ function GamePage({ game, setGame, handleGetRandom }) {
       <>
         <div className={styles.gameContainer}>
           <div className={styles.gameHeader}>
-            <h2>{game.name}</h2>
+            {/* <h2>{game.name}</h2> */}
             <button
               onClick={async () => {
                 let wishlistCopy = [...wishlist];

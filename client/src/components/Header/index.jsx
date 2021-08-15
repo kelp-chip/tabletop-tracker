@@ -11,6 +11,7 @@ function Header({
   setGames,
   setGame,
   wishlist,
+  getPopularGames,
 }) {
   const searchRef = useRef(null);
   return (
@@ -21,11 +22,11 @@ function Header({
             className={styles.logo}
             to="/"
             onClick={async () => {
-              await setGames([]);
+              await getPopularGames();
               await setGame(null);
             }}
           >
-            <img src={logo} width="250px"></img>
+            <img src={logo} width="250px" alt="logo"></img>
           </Link>
           <div className={styles.searchContainer}>
             <form onSubmit={(event) => handleSearchSubmit(event)}>

@@ -1,4 +1,8 @@
 import "./GameDetails.scss";
+import emptyStars from "../../../../images/empty_stars.svg";
+import fullStars from "../../../../images/full_stars.svg";
+import meeplesGreen from "../../../../images/meeples_green.svg";
+import meeplesBlue from "../../../../images/meeples_blue.svg";
 
 export default function GameDetails({ game }) {
   let {
@@ -11,34 +15,82 @@ export default function GameDetails({ game }) {
     year_published,
     official_url,
     primary_publisher,
+    average_user_rating,
+    average_learning_complexity,
+    average_strategy_complexity,
   } = game;
+
+  const getPercentage = (rating) => {
+    return Math.round((rating / 5) * 1000) / 10;
+  };
+
+  let ratingPercent = getPercentage(average_user_rating);
+  let averageLearningCompexity = getPercentage(average_learning_complexity);
+  let averageStrategyCompexity = getPercentage(average_strategy_complexity);
 
   return (
     <div className="game-details">
+      <div className="detailsHeader">
+        <div>
+          {game.name}
+          <span>({year_published})</span>
+        </div>
+        <div className="starsContainer">
+          <img src={emptyStars} alt="empty stars"></img>
+          <div
+            className="fullStarsContainer"
+            style={{ width: `${ratingPercent}%` }}
+          >
+            <img src={fullStars} alt="full stars"></img>
+          </div>
+        </div>
+      </div>
       <ul>
-        <li>
-          <i className="fas fa-user-friends icon"></i> {min_players} -{" "}
-          {max_players} players
-        </li>
-        <li>
-          <i className="fas fa-birthday-cake icon"></i> {min_age} years +
-        </li>
-        <li>
-          <i className="fas fa-hourglass-half icon"></i>
-          {min_playtime === max_playtime
-            ? `${max_playtime} mins`
-            : `${min_playtime} mins to 
-          ${max_playtime} mins`}
+        <li className="liFlex2">
+          <div>
+            {min_players} - {max_players} players
+          </div>{" "}
+          <div>Age: {min_age} years +</div>
+          <div>
+            {" "}
+            {min_playtime === max_playtime
+              ? ` ${max_playtime} mins`
+              : ` ${min_playtime} mins - 
+            ${max_playtime} mins`}
+          </div>
         </li>
 
+        <li className="liFlex">
+          Learning Complexity:
+          <div className="meepleContainer">
+            <div style={{ width: `${averageLearningCompexity}%` }}>
+              <img src={meeplesBlue} alt="blue meeples"></img>
+            </div>
+          </div>
+        </li>
+        <li className="liFlex">
+          Strategy Complexity:
+          <div className="meepleContainer">
+            <div style={{ width: `${averageStrategyCompexity}%` }}>
+              <img src={meeplesGreen} alt="green meeples"></img>
+            </div>
+          </div>
+        </li>
+        <li>
+          {primary_publisher ? (
+            <>
+              Publisher:
+              <a href={official_url}> {primary_publisher.name}</a>
+            </>
+          ) : (
+            ""
+          )}
+        </li>
+        <li>Artists: {game.artists.join(", ")}</li>
         <li>
           <i className="fas fa-tag icon"></i>
 
           {Number(price) === 0 ? "price not available" : `$${price}`}
-        </li>
-        <li>
-          Published in {year_published} by{" "}
-          <a href={official_url}>{primary_publisher.name}</a>
         </li>
       </ul>
     </div>

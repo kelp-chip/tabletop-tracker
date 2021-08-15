@@ -1,11 +1,12 @@
 .game-details {
-  margin-left: 13rem;
+  margin-left: 3rem;
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: rgb(245, 245, 245);
-  padding: 0 5em;
+  padding: 0 3em;
+  flex-grow: 1;
 
   @media (max-width: 1100px) {
     margin-left: 6rem;
@@ -43,4 +44,84 @@ li:last-child {
 i.fas.icon {
   display: inline-block;
   margin-right: 1.5rem;
+}
+
+.rating {
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.detailsHeader {
+  margin-top: 1rem;
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &:first-of-type div {
+    margin-right: 4rem;
+    font-weight: bold;
+    span {
+      font-weight: normal;
+      padding-left: 1rem;
+      color: rgb(75, 75, 75);
+    }
+  }
+}
+
+.starsContainer {
+  position: relative;
+  width: min-content;
+  img {
+    height: 2rem;
+  }
+}
+
+.fullStarsContainer {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  img {
+    height: 2rem;
+    width: auto;
+  }
+}
+
+.meepleContainer {
+  width: min-content;
+  div {
+    margin-left: 1rem;
+    height: min-content;
+    overflow: hidden;
+    img {
+      height: 2rem;
+    }
+  }
+}
+
+.liFlex {
+  display: flex;
+  align-items: center;
+}
+
+.liFlex2 {
+  display: flex;
+  align-items: center;
+
+  div {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 10px 2rem;
+    // padding-bottom: 0;
+    margin-right: -1px;
+    border-left: 1px gray solid;
+    border-right: 1px gray solid;
+  }
 }
