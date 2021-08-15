@@ -8,7 +8,7 @@ import { WishlistContext } from "../../context/wishlistContext";
 import toggleWishlist from "../../helpers/toggleWishlist/toggleWishlist";
 import isGameInWishlist from "../../helpers/isGameInWishlist/isGameInWishlist";
 import Loading from "../../components/Loading";
-import "./GamePage.scss";
+import styles from "./GamePage.module.scss";
 
 function GamePage({ game, setGame, handleGetRandom }) {
   const { wishlist, setWishlist } = useContext(WishlistContext);
@@ -31,10 +31,9 @@ function GamePage({ game, setGame, handleGetRandom }) {
   if (game) {
     return (
       <>
-        <GetRandom handleGetRandom={handleGetRandom}></GetRandom>
-        <div className="game-container">
-          <div className="game-header">
-            <h1>{game.name}</h1>
+        <div className={styles.gameContainer}>
+          <div className={styles.gameHeader}>
+            <h2>{game.name}</h2>
             <button
               onClick={async () => {
                 let wishlistCopy = [...wishlist];
@@ -44,21 +43,21 @@ function GamePage({ game, setGame, handleGetRandom }) {
               }}
             >
               {saved ? (
-                <span>remove from wishlist</span>
+                <i className="fas fa-heart"></i>
               ) : (
-                <span>add to wishlist</span>
+                <i className="far fa-heart"></i>
               )}
             </button>
           </div>
-          <div className="top-section">
+          <div className={styles.topSection}>
             <img src={game.images.medium} alt={`${game.name}`}></img>
             <GameDetails game={game} />
           </div>
-          <div className="game-description">
+          <div className={styles.gameDescription}>
             {game.description ? (
-              <h2>Description</h2>
+              <h3>Description</h3>
             ) : (
-              <h2>No Description Available</h2>
+              <h3>No Description Available</h3>
             )}
             {ReactHtmlParser(game.description)}
           </div>

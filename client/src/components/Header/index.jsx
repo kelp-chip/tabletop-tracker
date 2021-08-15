@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import logo from "../../images/logo.svg";
-import "./header.scss";
+import Form from "../Form";
+import styles from "./header.module.scss";
 
 function Header({
   searchValue,
@@ -10,43 +12,50 @@ function Header({
   setGame,
   wishlist,
 }) {
+  const searchRef = useRef(null);
   return (
     <>
-      <header className="navbar-container">
-        <Link to="/wishlist">
-          <div id="wishlist" title="wishlist">
-            <img
-              alt="wishlist"
-              src="https://image.flaticon.com/icons/png/512/1377/1377656.png"
-              width="40px"
-            ></img>
-            <strong>{wishlist.length}</strong>
-          </div>
-        </Link>
-        <div className="navbar">
+      <header className={styles.navbarContainer}>
+        <div className={styles.navbar}>
           <Link
-            className="logo"
+            className={styles.logo}
             to="/"
             onClick={async () => {
               await setGames([]);
               await setGame(null);
             }}
           >
-            <img src={logo} alt="tabletop tracker logo"></img>
+            <img src={logo} width="250px"></img>
           </Link>
-          <div className="nav-right">
-            <i className="fas fa-search"></i>
+          <div className={styles.searchContainer}>
             <form onSubmit={(event) => handleSearchSubmit(event)}>
               <input
                 type="text"
-                id="search"
+                className={styles.searchbar}
                 value={searchValue}
                 onChange={(event) => setSearchValue(event.target.value)}
+                ref={searchRef}
               ></input>
             </form>
+            <i
+              className={`fas fa-search ${styles.searchIcon}`}
+              onClick={() => searchRef.current.focus()}
+            ></i>
+          </div>
+          <div className={styles.navRight}>
+            <div className={styles.navLink}>
+              {" "}
+              <i class="fas fa-random"></i>
+            </div>
+            <Link to="/wishlist">
+              <div title="wishlist" className={styles.navLink}>
+                <i class="fas fa-heart"></i> <span> {wishlist.length}</span>
+              </div>
+            </Link>
           </div>
         </div>
       </header>
+      <Form setGames={setGames}></Form>
     </>
   );
 }

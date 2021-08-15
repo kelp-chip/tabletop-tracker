@@ -1,9 +1,9 @@
-.game-container {
+.gameContainer {
   margin-top: 3rem;
-  border-top: solid rgb(226, 226, 226) 1px;
+  // background-color: gray;
 }
 
-.top-section {
+.topSection {
   display: flex;
   margin-top: 3rem;
   img {
@@ -15,7 +15,7 @@
   }
 }
 
-.game-description {
+.gameDescription {
   padding: 3rem 1rem;
   border-top: 1px rgb(194, 194, 194) solid;
   margin-top: 2rem;
@@ -23,7 +23,7 @@
   line-height: 1.8rem;
 }
 
-.game-header {
+.gameHeader {
   margin-top: 1em;
   display: flex;
   justify-content: space-between;
@@ -31,5 +31,9 @@
   button {
     height: min-content;
     margin-left: 1em;
+    border: none;
+    background: none;
+    box-shadow: none;
+    font-size: 18px;
   }
 }
