@@ -33,8 +33,9 @@ function Form({ setGames, setSearchTitle }) {
         onSubmit={(event) => handleFormSubmit(event)}
       >
         <div>
-          <label>min players</label>
+          <label htmlFor="minPlayers">min players</label>
           <select
+            id="minPlayers"
             value={minPlayers}
             onChange={(event) => setMinPlayers(event.target.value)}
           >
@@ -47,8 +48,9 @@ function Form({ setGames, setSearchTitle }) {
           </select>
         </div>
         <div>
-          <label>min age</label>
+          <label htmlFor="minAge">min age</label>
           <select
+            id="minAge"
             value={minAge}
             onChange={(event) => setMinAge(event.target.value)}
           >
@@ -63,8 +65,9 @@ function Form({ setGames, setSearchTitle }) {
         </div>
 
         <div>
-          <label>max time</label>
+          <label htmlFor="maxTime">max time</label>
           <select
+            id="maxTime"
             value={maxTime}
             onChange={(event) => setMaxTime(event.target.value)}
           >
@@ -77,8 +80,9 @@ function Form({ setGames, setSearchTitle }) {
           </select>
         </div>
         <div className={styles.slider}>
-          <label>max price</label>
+          <label htmlFor="maxPrice">max price</label>
           <input
+            id="maxPrice"
             value={maxPrice}
             onChange={(event) => setMaxPrice(event.target.value)}
             type="range"
