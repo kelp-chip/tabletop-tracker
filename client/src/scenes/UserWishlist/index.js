@@ -1,8 +1,7 @@
 import GameList from "../../components/GameList";
-import GetRandom from "../../components/GetRandom";
 import { withRouter } from "react-router-dom";
 
-function UserWishlist({ wishlist, handleGetRandom }) {
+function UserWishlist({ wishlist }) {
   return (
     <>
       <div className="wishlist-container">

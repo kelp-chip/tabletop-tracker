@@ -3,14 +3,13 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import GameDetails from "./components/GameDetails/index";
 import ReactHtmlParser from "react-html-parser";
-import GetRandom from "../../components/GetRandom";
 import { WishlistContext } from "../../context/wishlistContext";
 import toggleWishlist from "../../helpers/toggleWishlist/toggleWishlist";
 import isGameInWishlist from "../../helpers/isGameInWishlist/isGameInWishlist";
 import Loading from "../../components/Loading";
 import styles from "./GamePage.module.scss";
 
-function GamePage({ game, setGame, handleGetRandom }) {
+function GamePage({ game, setGame }) {
   const { wishlist, setWishlist } = useContext(WishlistContext);
   const { id } = useParams();
   const [saved, setSaved] = useState(false);
