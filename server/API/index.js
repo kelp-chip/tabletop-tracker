@@ -8,7 +8,6 @@ const URL = "https://api.boardgameatlas.com/api/search?";
 
 const API = {
   getSearchedGames(searchValue, cb) {
-    console.log(searchValue);
     searchValue = searchValue.toLowerCase();
     axios
       .get(
@@ -33,7 +32,6 @@ const API = {
       .get(`${URL}${details}&client_id=${process.env.CLIENT_ID}`)
       .then((result) => {
         result = parse.json(result.data.games);
-        console.log(result[0].name);
         cb(result);
       });
     return;
@@ -44,7 +42,6 @@ const API = {
       .get(`${URL}&order_by=rank&limit=12&client_id=${process.env.CLIENT_ID}`)
       .then((result) => {
         result = parse.json(result.data.games);
-        console.log(result[0].name);
         cb(result);
       });
     return;
@@ -54,7 +51,6 @@ const API = {
     axios(`${URL}random=true&client_id=${process.env.CLIENT_ID}`).then(
       (result) => {
         const game = result.data.games[0];
-        console.log(game);
         cb(game);
       }
     );

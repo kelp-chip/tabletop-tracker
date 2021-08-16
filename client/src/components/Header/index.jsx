@@ -34,6 +34,7 @@ function Header({
           <div className={styles.searchContainer}>
             <form onSubmit={(event) => handleSearchSubmit(event)}>
               <input
+                aria-label="search"
                 type="text"
                 className={styles.searchbar}
                 value={searchValue}
@@ -49,7 +50,11 @@ function Header({
           <div className={styles.navRight}>
             <div className={styles.navLink}>
               {" "}
-              <button className={styles.linkbtn}>
+              <button
+                className={styles.linkbtn}
+                aria-label="get random"
+                title="get random"
+              >
                 <i class="fas fa-random" onClick={handleGetRandom}></i>
               </button>
             </div>
