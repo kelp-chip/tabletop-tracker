@@ -32,26 +32,22 @@ function GamePage({ game, setGame, handleGetRandom }) {
     return (
       <>
         <div className={styles.gameContainer}>
-          <div className={styles.gameHeader}>
-            {/* <h2>{game.name}</h2> */}
-            <button
-              onClick={async () => {
-                let wishlistCopy = [...wishlist];
-                const res = await toggleWishlist(game, wishlistCopy);
-                await setWishlist(res.wishlist);
-                await setSaved(res.saved);
-              }}
-            >
-              {saved ? (
-                <i className="fas fa-heart"></i>
-              ) : (
-                <i className="far fa-heart"></i>
-              )}
-            </button>
-          </div>
           <div className={styles.topSection}>
-            <img src={game.images.medium} alt={`${game.name}`}></img>
-            <GameDetails game={game} />
+            <div className={styles.imageWrapper}>
+              <img
+                src={game.images.medium}
+                alt={`${game.name}`}
+                className={styles.gameImg}
+              ></img>
+            </div>
+            <GameDetails
+              game={game}
+              wishlist={wishlist}
+              setSaved={setSaved}
+              setWishlist={setWishlist}
+              toggleWishlist={toggleWishlist}
+              saved={saved}
+            />
           </div>
           <div className={styles.gameDescription}>
             {game.description ? (

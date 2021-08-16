@@ -4,7 +4,14 @@ import fullStars from "../../../../images/full_stars.svg";
 import meeplesGreen from "../../../../images/meeples_green.svg";
 import meeplesBlue from "../../../../images/meeples_blue.svg";
 
-export default function GameDetails({ game }) {
+export default function GameDetails({
+  game,
+  wishlist,
+  setSaved,
+  setWishlist,
+  toggleWishlist,
+  saved,
+}) {
   let {
     min_playtime,
     max_playtime,
@@ -31,22 +38,38 @@ export default function GameDetails({ game }) {
   return (
     <div className="game-details">
       <div className="detailsHeader">
-        <div>
+        <div className="gameName">
           {game.name}
           <span>({year_published})</span>
         </div>
-        <div className="starsContainer">
-          <img src={emptyStars} alt="empty stars"></img>
-          <div
-            className="fullStarsContainer"
-            style={{ width: `${ratingPercent}%` }}
-          >
-            <img src={fullStars} alt="full stars"></img>
+        <div className="headerRight">
+          <div className="starsContainer">
+            <img src={emptyStars} alt="empty stars"></img>
+            <div
+              className="fullStarsContainer"
+              style={{ width: `${ratingPercent}%` }}
+            >
+              <img src={fullStars} alt="full stars"></img>
+            </div>
           </div>
+          <button
+            onClick={async () => {
+              let wishlistCopy = [...wishlist];
+              const res = await toggleWishlist(game, wishlistCopy);
+              await setWishlist(res.wishlist);
+              await setSaved(res.saved);
+            }}
+          >
+            {saved ? (
+              <i className="fas fa-heart"></i>
+            ) : (
+              <i className="far fa-heart"></i>
+            )}
+          </button>
         </div>
       </div>
-      <ul>
-        <li className="liFlex2">
+      <div className="secondHeader">
+        <div className="liFlex2">
           <div>
             {min_players} - {max_players} players
           </div>{" "}
@@ -56,10 +79,12 @@ export default function GameDetails({ game }) {
             {min_playtime === max_playtime
               ? ` ${max_playtime} mins`
               : ` ${min_playtime} mins - 
-            ${max_playtime} mins`}
+              ${max_playtime} mins`}
           </div>
-        </li>
+        </div>
+      </div>
 
+      <ul>
         <li className="liFlex">
           Learning Complexity:
           <div className="meepleContainer">
@@ -88,9 +113,8 @@ export default function GameDetails({ game }) {
         </li>
         <li>Artists: {game.artists.join(", ")}</li>
         <li>
-          <i className="fas fa-tag icon"></i>
-
-          {Number(price) === 0 ? "price not available" : `$${price}`}
+          Price:
+          {Number(price) === 0 ? "price not available" : ` $${price}`}
         </li>
       </ul>
     </div>

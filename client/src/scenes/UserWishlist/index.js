@@ -5,10 +5,9 @@ import { withRouter } from "react-router-dom";
 function UserWishlist({ wishlist, handleGetRandom }) {
   return (
     <>
-      <GetRandom handleGetRandom={handleGetRandom}></GetRandom>
       <div className="wishlist-container">
         {wishlist.length > 0 ? (
-          <GameList games={wishlist} sectionName="Wishlist" />
+          <GameList games={wishlist} sectionName="Your Saved Games" />
         ) : (
           <span>wishlist is empty</span>
         )}

@@ -6,34 +6,28 @@
 .topSection {
   display: flex;
   margin-top: 3rem;
-  img {
-    max-width: 300px;
-  }
+
   @media (max-width: 900px) {
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  .imageWrapper {
+    width: max-content;
+    height: max-content;
+  }
+}
+.gameImg {
+  width: auto;
+  max-height: 600px;
+  max-width: 300px;
 }
 
 .gameDescription {
-  padding: 3rem 1rem;
-  border-top: 1px rgb(194, 194, 194) solid;
+  padding: 0.5rem 3rem;
+  border-radius: 10px;
+  background-color: #f0f0f0;
   margin-top: 2rem;
   margin-bottom: 4rem;
   line-height: 1.8rem;
-}
-
-.gameHeader {
-  margin-top: 1em;
-  display: flex;
-  justify-content: space-between;
-
-  button {
-    height: min-content;
-    margin-left: 1em;
-    border: none;
-    background: none;
-    box-shadow: none;
-    font-size: 18px;
-  }
 }

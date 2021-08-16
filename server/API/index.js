@@ -22,29 +22,32 @@ const API = {
   },
 
   getSpecifiedGames(specs, cb) {
-    if (specs) {
-      let details = `&min_players=${specs.min_players}&min_age=${specs.min_age}`;
-      console.log(specs.max_price);
-      if (specs.max_price !== "null") {
-        details += `&max_price=${specs.max_price}`;
-      }
-      if (specs.max_time !== "null") {
-        details += `&max_time=${specs.max_time}`;
-      }
-      console.log(details);
-      axios
-        .get(`${URL}&order_by=rank&limit=12&client_id=${process.env.CLIENT_ID}`)
-        .then((result) => {
-          result = parse.json(result.data.games);
-          cb(result);
-        });
-      return;
-    } else {
-      axios.get(`${URL}&client_id=${process.env.CLIENT_ID}`).then((result) => {
+    let details = `&min_players=${specs.min_players}&min_age=${specs.min_age}`;
+    if (specs.max_price !== "null") {
+      details += `&lt_price=${specs.max_price}`;
+    }
+    if (specs.max_time !== "null") {
+      details += `&lt_max_playtime=${specs.max_time}`;
+    }
+    axios
+      .get(`${URL}${details}&client_id=${process.env.CLIENT_ID}`)
+      .then((result) => {
         result = parse.json(result.data.games);
+        console.log(result[0].name);
         cb(result);
       });
-    }
+    return;
+  },
+
+  getPopularGames(cb) {
+    axios
+      .get(`${URL}&order_by=rank&limit=12&client_id=${process.env.CLIENT_ID}`)
+      .then((result) => {
+        result = parse.json(result.data.games);
+        console.log(result[0].name);
+        cb(result);
+      });
+    return;
   },
 
   getRandom(cb) {

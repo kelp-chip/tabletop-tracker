@@ -1,9 +1,9 @@
 import GameList from "../../components/GameList";
 
-function Home({ games, setGames, PopularGames, handleGetRandom }) {
+function Home({ games, searchTitle }) {
   return (
     <>
-      <GameList games={games} sectionName="Search results" />
+      <GameList games={games} searchTitle={searchTitle} />
     </>
   );
 }

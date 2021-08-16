@@ -1,27 +1,29 @@
 import styles from "./Form.module.scss";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
-// import GetRandom from "../GetRandom";
 
-// function Form({ handleGetRandom, setGames }) {
-function Form({ setGames }) {
+function Form({ setGames, setSearchTitle }) {
   const [minPlayers, setMinPlayers] = useState("1");
   const [minAge, setMinAge] = useState("6");
   const [maxPrice, setMaxPrice] = useState("50");
   const [maxTime, setMaxTime] = useState("40");
+  const history = useHistory();
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .get(`${process.env.REACT_APP_SERVER_URL}/games`, {
-        params: {
-          min_players: minPlayers,
-          min_age: minAge,
-          max_price: maxPrice,
-          max_time: maxTime,
-        },
-      })
-      .then((games) => setGames(games.data));
+    let games = await axios.get(`${process.env.REACT_APP_SERVER_URL}/games`, {
+      params: {
+        min_players: minPlayers,
+        min_age: minAge,
+        max_price: maxPrice,
+        max_time: maxTime,
+      },
+    });
+    console.log(games);
+    await setSearchTitle("Search Results");
+    await setGames(games.data);
+    await history.push("/");
   };
 
   return (
