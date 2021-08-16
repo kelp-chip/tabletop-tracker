@@ -1,11 +1,13 @@
 .game-details {
-  margin-left: 13rem;
+  margin-left: 3rem;
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(245, 245, 245);
-  padding: 0 5em;
+  // border: gray solid 1px;
+  // background-color: rgb(245, 245, 245);
+  padding: 0 2em;
+  flex-grow: 1;
 
   @media (max-width: 1100px) {
     margin-left: 6rem;
@@ -14,6 +16,19 @@
   @media (max-width: 900px) {
     margin-left: 0;
     margin-top: 4rem;
+  }
+
+  button {
+    padding: 0;
+    margin-left: 1em;
+    border: none;
+    background: none;
+    box-shadow: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b3684b;
   }
 }
 
@@ -33,14 +48,104 @@ li {
   }
 }
 
-li:last-child {
-  margin-top: 5rem;
-  @media (max-width: 768px) {
-    margin-top: 4rem;
-  }
-}
-
 i.fas.icon {
   display: inline-block;
   margin-right: 1.5rem;
+}
+
+.rating {
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.detailsHeader {
+  margin-top: 1rem;
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+
+  .gameName {
+    margin-right: 4rem;
+    font-weight: bold;
+    span {
+      font-weight: normal;
+      padding-left: 1rem;
+      color: rgb(75, 75, 75);
+    }
+  }
+}
+
+.starsContainer {
+  position: relative;
+  width: min-content;
+  height: min-content;
+  img {
+    height: 2rem;
+  }
+}
+
+.fullStarsContainer {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  img {
+    height: 2rem;
+    width: auto;
+  }
+}
+
+.meepleContainer {
+  width: min-content;
+  div {
+    margin-left: 1rem;
+    height: min-content;
+    overflow: hidden;
+    img {
+      height: 2rem;
+    }
+  }
+}
+
+.liFlex {
+  display: flex;
+  align-items: center;
+}
+
+.liFlex2 {
+  display: flex;
+  align-items: center;
+
+  div {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 10px 2rem;
+    // padding-bottom: 0;
+    margin-right: -1px;
+    border-left: 1px gray solid;
+    border-right: 1px gray solid;
+  }
+}
+
+.secondHeader {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

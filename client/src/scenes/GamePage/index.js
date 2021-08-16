@@ -8,7 +8,7 @@ import { WishlistContext } from "../../context/wishlistContext";
 import toggleWishlist from "../../helpers/toggleWishlist/toggleWishlist";
 import isGameInWishlist from "../../helpers/isGameInWishlist/isGameInWishlist";
 import Loading from "../../components/Loading";
-import "./GamePage.scss";
+import styles from "./GamePage.module.scss";
 
 function GamePage({ game, setGame, handleGetRandom }) {
   const { wishlist, setWishlist } = useContext(WishlistContext);
@@ -31,34 +31,29 @@ function GamePage({ game, setGame, handleGetRandom }) {
   if (game) {
     return (
       <>
-        <GetRandom handleGetRandom={handleGetRandom}></GetRandom>
-        <div className="game-container">
-          <div className="game-header">
-            <h1>{game.name}</h1>
-            <button
-              onClick={async () => {
-                let wishlistCopy = [...wishlist];
-                const res = await toggleWishlist(game, wishlistCopy);
-                await setWishlist(res.wishlist);
-                await setSaved(res.saved);
-              }}
-            >
-              {saved ? (
-                <span>remove from wishlist</span>
-              ) : (
-                <span>add to wishlist</span>
-              )}
-            </button>
+        <div className={styles.gameContainer}>
+          <div className={styles.topSection}>
+            <div className={styles.imageWrapper}>
+              <img
+                src={game.images.medium}
+                alt={`${game.name}`}
+                className={styles.gameImg}
+              ></img>
+            </div>
+            <GameDetails
+              game={game}
+              wishlist={wishlist}
+              setSaved={setSaved}
+              setWishlist={setWishlist}
+              toggleWishlist={toggleWishlist}
+              saved={saved}
+            />
           </div>
-          <div className="top-section">
-            <img src={game.images.medium} alt={`${game.name}`}></img>
-            <GameDetails game={game} />
-          </div>
-          <div className="game-description">
+          <div className={styles.gameDescription}>
             {game.description ? (
-              <h2>Description</h2>
+              <h3>Description</h3>
             ) : (
-              <h2>No Description Available</h2>
+              <h3>No Description Available</h3>
             )}
             {ReactHtmlParser(game.description)}
           </div>

@@ -28,12 +28,9 @@ code {
     monospace;
 }
 
-input[type="submit"],
 button {
   padding: 0.8rem 4rem;
-  background-color: $button-color;
   border-radius: 0.7rem;
-  border: 1px solid $button-border;
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: 500;
@@ -80,7 +77,15 @@ a:hover {
   color: rgb(59, 59, 59);
 }
 
-.wishlist-container {
-  margin-top: 2rem;
-  border-top: 1px rgb(194, 194, 194) solid;
+.icon {
+  color: gray;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 0;
 }

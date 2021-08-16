@@ -1,11 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Header from "./components/Header/index";
 import Home from "./scenes/Home";
 import UserWishlist from "./scenes/UserWishlist";
 import GamePage from "./scenes/GamePage";
 import PageNotFound from "./scenes/404/index";
-import PopularGames from "./storedData/popularGames";
 import "./App.scss";
 import axios from "axios";
 import { WishlistContext } from "./context/wishlistContext";
@@ -14,6 +13,7 @@ require("dotenv").config();
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+  const [searchTitle, setSearchTitle] = useState("");
   const [games, setGames] = useState([]);
   const [game, setGame] = useState(null);
   const history = useHistory();
@@ -35,15 +35,23 @@ function App() {
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
     await setGames([]);
-    await axios
-      .get(`${process.env.REACT_APP_SERVER_URL}/games/search`, {
+    let { data: games } = await axios.get(
+      `${process.env.REACT_APP_SERVER_URL}/games/search`,
+      {
         params: { searchValue: searchValue },
-      })
-      .then(async (games) => {
-        await setGames(games.data);
-        await setSearchValue("");
-        history.push("/");
-      });
+      }
+    );
+    await setSearchTitle("Search Results");
+    await setGames(games);
+    history.push("/");
+  };
+
+  const getPopularGames = async () => {
+    let { data: games } = await axios.get(
+      `${process.env.REACT_APP_SERVER_URL}/games`
+    );
+    await setGames(games);
+    await setSearchTitle("Popular Games");
   };
 
   const handleGetRandom = async () => {
@@ -52,6 +60,10 @@ function App() {
       history.push(`/game/${game.data.id}`);
     });
   };
+
+  useEffect(() => {
+    getPopularGames();
+  }, []);
 
   return (
     <WishlistContext.Provider value={providerWishlist}>
@@ -63,6 +75,9 @@ function App() {
           setGames={setGames}
           setGame={setGame}
           wishlist={wishlist}
+          getPopularGames={getPopularGames}
+          setSearchTitle={setSearchTitle}
+          handleGetRandom={handleGetRandom}
         />
         <main className="container">
           <Switch>
@@ -70,24 +85,14 @@ function App() {
               path="/"
               exact
               render={(props) => (
-                <Home
-                  {...props}
-                  games={games}
-                  setGames={setGames}
-                  PopularGames={PopularGames}
-                  handleGetRandom={handleGetRandom}
-                />
+                <Home {...props} games={games} searchTitle={searchTitle} />
               )}
             />
             <Route
               path="/wishlist"
               exact
               render={(props) => (
-                <UserWishlist
-                  {...props}
-                  wishlist={wishlist}
-                  handleGetRandom={handleGetRandom}
-                />
+                <UserWishlist {...props} wishlist={wishlist} />
               )}
             />
             <Route
@@ -98,7 +103,6 @@ function App() {
                   {...props}
                   game={game}
                   setGame={setGame}
-                  handleGetRandom={handleGetRandom}
                   wishlist={wishlist}
                 />
               )}
