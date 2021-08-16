@@ -1,0 +1,33 @@
+.gameContainer {
+  margin-top: 3rem;
+  // background-color: gray;
+}
+
+.topSection {
+  display: flex;
+  margin-top: 3rem;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .imageWrapper {
+    width: max-content;
+    height: max-content;
+  }
+}
+.gameImg {
+  width: auto;
+  max-height: 600px;
+  max-width: 300px;
+}
+
+.gameDescription {
+  padding: 0.5rem 3rem;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  line-height: 1.8rem;
+}

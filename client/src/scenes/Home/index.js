@@ -1,16 +1,9 @@
 import GameList from "../../components/GameList";
-import Form from "./components/Form";
 
-function Home({ games, setGames, PopularGames, handleGetRandom }) {
+function Home({ games, searchTitle }) {
   return (
     <>
-      {console.log(games)}
-      <Form handleGetRandom={handleGetRandom} setGames={setGames}></Form>
-      {games.length > 0 ? (
-        <GameList games={games} sectionName="Search results" />
-      ) : (
-        <GameList games={PopularGames} sectionName="Popular Games" />
-      )}
+      <GameList games={games} searchTitle={searchTitle} />
     </>
   );
 }

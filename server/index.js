@@ -21,7 +21,12 @@ app.get("/game", (req, res) => {
 
 app.get("/games", (req, res) => {
   const specs = req.query;
-  API.getSpecifiedGames(specs, (games) => res.send(games));
+
+  if (JSON.stringify(specs) === "{}") {
+    API.getPopularGames((games) => res.send(games));
+  } else {
+    API.getSpecifiedGames(specs, (games) => res.send(games));
+  }
 });
 
 app.get("/games/search", (req, res) => {
