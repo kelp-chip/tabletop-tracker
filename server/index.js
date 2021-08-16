@@ -31,7 +31,6 @@ app.get("/games", (req, res) => {
 
 app.get("/games/search", (req, res) => {
   const { searchValue } = req.query;
-  console.log(searchValue);
   API.getSearchedGames(searchValue, (games) => res.json(games));
 });
 

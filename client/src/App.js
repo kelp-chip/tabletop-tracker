@@ -118,7 +118,11 @@ function App() {
               <a href="https://www.boardgameatlas.com/">Board Game Atlas</a> API
             </p>
             <p>
-              <a href="https://github.com/lexykio/tabletop-tracker">
+              <a
+                href="https://github.com/lexykio/tabletop-tracker"
+                aria-label="github"
+                title="github"
+              >
                 <i className="fab fa-github"></i>
               </a>
             </p>

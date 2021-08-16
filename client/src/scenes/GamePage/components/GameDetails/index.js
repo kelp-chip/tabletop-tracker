@@ -59,6 +59,8 @@ export default function GameDetails({
               await setWishlist(res.wishlist);
               await setSaved(res.saved);
             }}
+            aria-label="favorites"
+            title="favorites"
           >
             {saved ? (
               <i className="fas fa-heart"></i>
